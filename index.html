@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL KHAIR RDC - Servir, éduquer et rassembler la communauté</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #f8f9fa; }
+        header { background-color: #0d5c3a; color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: auto; }
+        nav .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
+        nav ul { display: flex; list-style: none; gap: 15px; flex-wrap: wrap; }
+        nav a { color: #fff; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: #85e3b5; }
+        .hero { background: linear-gradient(135deg, #0d5c3a, #138050); color: white; text-align: center; padding: 4rem 1rem; }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+        .hero p { max-width: 800px; margin: 0 auto 1.5rem auto; font-size: 1.1rem; opacity: 0.95; }
+        .btn { display: inline-block; padding: 12px 24px; color: #0d5c3a; background: #fff; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 5px; transition: all 0.3s; }
+        .btn:hover { background: #e0f2e9; transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); }
+        section { padding: 3rem 1.5rem; max-width: 1100px; margin: auto; }
+        h2 { color: #0d5c3a; margin-bottom: 1rem; border-bottom: 3px solid #138050; padding-bottom: 8px; display: inline-block; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 1.5rem; }
+        .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #138050; }
+        .card h3 { color: #138050; margin-bottom: 0.5rem; }
+        ul.list { margin-left: 20px; margin-top: 10px; }
+        ul.list li { margin-bottom: 8px; }
+        footer { background: #1a1a1a; color: #ccc; padding: 2.5rem 1rem; text-align: center; font-size: 0.95rem; }
+        footer h2 { color: #fff; border-bottom: none; margin-bottom: 1rem; }
+        footer a { color: #85e3b5; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <!-- En-tête & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">AL KHAIR RDC</div>
+            <ul>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#activites">Activités</a></li>
+                <li><a href="#competitions">Compétitions</a></li>
+                <li><a href="#seminaires">Séminaires</a></li>
+                <li><a href="#gouvernance">Gouvernance</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section Principale / Hero -->
+    <section class="hero">
+        <h1>Servir, éduquer et rassembler la communauté</h1>
+        <p>AL KHAIR RDC est une organisation qui met la solidarité et le savoir au service de la communauté, à travers des actions caritatives, des compétitions coraniques et des séminaires d'enseignement.</p>
+        <a href="#contact" class="btn">Nous contacter</a>
+        <a href="#activites" class="btn btn-outline">Découvrir nos actions</a>
+    </section>
+
+    <!-- À propos -->
+    <section id="apropos">
+        <h2>Notre vision et notre mission</h2>
+        <p style="margin-top: 15px;">AL KHAIR GROUPE (« AL KHAIR RDC ») est une association sans but lucratif, à vocation humanitaire, sociale et communautaire, fondée à Goma en 2018. Nous aspirons à une société congolaise inclusive, pacifique et résiliente, où chaque personne — en particulier les enfants, les jeunes et les femmes — peut vivre dans la dignité et participer pleinement au développement de sa communauté.</p>
+        <p style="margin-top: 15px;"><strong>Notre mission :</strong> offrir un accompagnement global et durable aux personnes vulnérables, renforcer leurs capacités, promouvoir leur autonomie et contribuer à la paix et à la cohésion sociale.</p>
+        <p style="margin-top: 15px;"><strong>Domaines d'intervention :</strong></p>
+        <ul class="list">
+            <li>Protection de l'enfance et protection communautaire</li>
+            <li>Éducation, formation et renforcement des capacités</li>
+            <li>Santé communautaire, eau, hygiène et assainissement</li>
+            <li>Autonomisation des femmes et des jeunes</li>
+            <li>Paix, cohésion sociale et prévention des conflits</li>
+            <li>Assistance humanitaire et réponse aux urgences</li>
+        </ul>
+    </section>
+
+    <!-- Activités -->
+    <section id="activites" style="background-color: #f0f7f4; max-width: 100%; padding: 3rem 1.5rem;">
+        <div style="max-width: 1100px; margin: auto;">
+            <h2>Ce que nous faisons pour la communauté</h2>
+            <p style="margin-top: 10px;">Nos actions caritatives visent à soulager les besoins urgents tout en construisant des solutions durables.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Distribution alimentaire</h3>
+                    <p>Des vivres remis régulièrement aux familles en difficulté, en particulier pendant le Ramadan et les périodes de fête.</p>
+                </div>
+                <div class="card">
+                    <h3>Soutien aux orphelins</h3>
+                    <p>Un accompagnement matériel et éducatif pour les enfants orphelins de notre communauté.</p>
+                </div>
+                <div class="card">
+                    <h3>Aide médicale</h3>
+                    <p>Une contribution aux frais de santé des familles qui n'ont pas accès aux soins de base.</p>
+                </div>
+                <div class="card">
+                    <h3>Fournitures scolaires</h3>
+                    <p>La remise de kits scolaires aux enfants à chaque rentrée pour alléger la charge des parents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétitions & Séminaires -->
+    <section id="competitions">
+        <h2>Compétitions & Séminaires</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Compétitions coraniques</h3>
+                <p><strong>Encourager la mémorisation et la récitation :</strong> Chaque année, AL KHAIR RDC organise des compétitions ouvertes aux enfants et aux adultes. Ces rencontres valorisent l'effort des participants et créent un moment fort de partage pour toute la communauté.</p>
+            </div>
+            <div class="card" id="seminaires">
+                <h3>Séminaires d'apprentissage</h3>
+                <p><strong>Apprendre et échanger ensemble :</strong> Nous organisons des séminaires réguliers animés par des enseignants qualifiés, abordant des sujets religieux, sociaux et familiaux. Ces rencontres sont ouvertes à tous.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gouvernance -->
+    <section id="gouvernance" style="background-color: #f0f7f4; max-width: 100%; padding: 3rem 1.5rem;">
+        <div style="max-width: 1100px; margin: auto;">
+            <h2>Gouvernance & Équipe</h2>
+            <p style="margin-top: 10px;">AL KHAIR GROUPE est gouverné par l'Assemblée Générale, le Conseil d'Administration et la Coordination.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Alphani Kalibwa Irfani</h3>
+                    <p>Président du Conseil d'Administration</p>
+                </div>
+                <div class="card">
+                    <h3>Tausi Tambwe Raissa</h3>
+                    <p>Vice-Présidente du CA</p>
+                </div>
+                <div class="card">
+                    <h3>Adam Manisudi Junior</h3>
+                    <p>Coordonnateur</p>
+                </div>
+                <div class="card">
+                    <h3>Muhozi Chomachoma Sefu</h3>
+                    <p>Directeur des opérations</p>
+                </div>
+                <div class="card">
+                    <h3>Adidja Hamadi Nusba</h3>
+                    <p>Responsable financière</p>
+                </div>
+                <div class="card">
+                    <h3>Djamilah Nzema Shatty</h3>
+                    <p>Trésorière</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Pied de page -->
+    <footer id="contact">
+        <h2>Contact & Localisation</h2>
+        <p><strong>AL KHAIR GROUPE (AL KHAIR RDC)</strong></p>
+        <p style="margin-top: 8px;">Siège social : Goma, commune de Kalisimbi, quartier Katoyi, RDC</p>
+        <p style="margin-top: 8px;">Email : <a href="mailto:alkhairgrouperdc@gmail.com">alkhairgrouperdc@gmail.com</a></p>
+        <p style="margin-top: 8px;">Téléphones : +243 972 048 949 / +243 976 505 226</p>
+        <p style="margin-top: 8px;"><a href="https://instagram.com/alkhairgroupegoma" target="_blank">Instagram — AL KHAIR GROUPE GOMA</a></p>
+        <p style="margin-top: 25px; font-size: 0.85rem; color: #888;">© 2026 AL KHAIR RDC — Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
