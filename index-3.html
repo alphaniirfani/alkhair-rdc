@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AL KHAIR RDC — Servir, éduquer et rassembler la communauté</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF6EC;
+    --bg-alt:#F1E8D4;
+    --ink:#1E2B22;
+    --ink-soft:#4A564C;
+    --green:#1B4B3A;
+    --green-deep:#123328;
+    --gold:#B8862E;
+    --gold-light:#E8CE96;
+    --card:#FFFFFF;
+    --line: rgba(30,43,34,0.12);
+    --radius: 4px;
+    box-sizing:border-box;
+    padding-top: env(safe-area-inset-top,0px);
+    padding-bottom: env(safe-area-inset-bottom,0px);
+  }
+  html{scroll-behavior:smooth; scroll-padding-top: calc(76px + env(safe-area-inset-top,0px));}
+  *,*::before,*::after{box-sizing:inherit;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Karla',sans-serif;
+    font-size:17px;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    color:var(--green-deep);
+    margin:0 0 .4em 0;
+    line-height:1.15;
+    font-weight:600;
+  }
+  h1{font-size:clamp(2rem,5vw,3.2rem); font-weight:500;}
+  h2{font-size:clamp(1.5rem,3.4vw,2.1rem);}
+  p{margin:0 0 1em 0; max-width:65ch;}
+  a{color:var(--green);}
+  img{max-width:100%; display:block;}
+  section{padding:72px 24px;}
+  .wrap{max-width:1040px; margin:0 auto;}
+  .eyebrow{
+    display:inline-block;
+    font-family:'Karla',sans-serif;
+    font-weight:700;
+    color:var(--gold);
+    background:var(--gold-light);
+    padding:4px 12px;
+    border-radius:20px;
+    font-size:.85rem;
+    margin-bottom:14px;
+  }
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,246,236,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    padding-top: env(safe-area-inset-top,0px);
+  }
+  .nav-inner{
+    max-width:1040px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; gap:16px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem; color:var(--green-deep);
+    text-decoration:none;
+  }
+  .brand-mark{
+    width:38px; height:38px; border-radius:50%;
+    flex-shrink:0;
+  }
+  nav ul{
+    list-style:none; display:flex; gap:22px; margin:0; padding:0;
+    flex-wrap:wrap;
+  }
+  nav a{
+    text-decoration:none; color:var(--ink); font-weight:600; font-size:.95rem;
+  }
+  nav a:hover{color:var(--green);}
+  #nav-toggle{display:none;}
+  .burger{display:none; cursor:pointer; background:none; border:none; padding:6px;}
+  .burger span{display:block; width:24px; height:2px; background:var(--ink); margin:5px 0;}
+
+  @media (max-width:760px){
+    nav ul{
+      display:none;
+      position:absolute; left:0; right:0; top:100%;
+      background:var(--bg); border-bottom:1px solid var(--line);
+      flex-direction:column; gap:0; padding:8px 24px 16px;
+    }
+    nav ul li{padding:10px 0; border-top:1px solid var(--line);}
+    #nav-toggle:checked ~ ul{display:flex;}
+    .burger{display:block;}
+  }
+
+  /* Hero */
+  .hero{
+    padding:88px 24px 72px;
+    background:linear-gradient(180deg,var(--bg) 0%, var(--bg-alt) 100%);
+  }
+  .hero .wrap{max-width:760px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-top:28px;}
+  .btn{
+    display:inline-block;
+    padding:13px 26px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    font-weight:700;
+    font-size:.95rem;
+    border:2px solid transparent;
+  }
+  .btn-primary{background:var(--green); color:#fff;}
+  .btn-primary:hover{background:var(--green-deep);}
+  .btn-outline{border-color:var(--green); color:var(--green);}
+  .btn-outline:hover{background:var(--green); color:#fff;}
+  .btn-gold{background:var(--gold); color:#fff;}
+  .btn-gold:hover{background:#9a6f22;}
+
+  /* Alt sections */
+  .alt{background:var(--bg-alt);}
+
+  /* mission list */
+  .mission-list{
+    list-style:none; margin:24px 0 0; padding:0;
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:12px 24px;
+  }
+  .mission-list li{
+    padding-left:26px; position:relative; font-weight:600; color:var(--green-deep);
+  }
+  .mission-list li::before{
+    content:"";
+    position:absolute; left:0; top:9px;
+    width:9px; height:9px; border-radius:50%;
+    background:var(--gold);
+  }
+
+  /* Activity cards */
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px; margin-top:32px;
+  }
+  .card{
+    background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:26px;
+  }
+  .card h3{font-size:1.15rem; margin-bottom:.5em;}
+  .card p{margin-bottom:0; font-size:.96rem; color:var(--ink-soft);}
+
+  /* Realisations gallery */
+  .gallery{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px; margin-top:32px;
+  }
+  .gallery figure{
+    margin:0; background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .gallery .art{
+    aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,var(--green) 0%, var(--green-deep) 100%);
+  }
+  .gallery .art svg{width:46%; height:46%;}
+  .gallery figcaption{padding:14px 16px; font-weight:600; font-size:.92rem; color:var(--green-deep);}
+  .gallery-note{
+    margin-top:18px; font-size:.88rem; color:var(--ink-soft); font-style:italic;
+  }
+
+  /* Governance */
+  .team-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:18px; margin-top:32px;
+  }
+  .team-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px;
+  }
+  .team-card .name{font-weight:700; color:var(--green-deep);}
+  .team-card .role{color:var(--ink-soft); font-size:.9rem;}
+
+  /* Don section */
+  .don{
+    background:var(--green-deep); color:#F5EFDD;
+  }
+  .don h2{color:#fff;}
+  .don p{color:#D9E4DB;}
+  .don-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px; margin-top:32px;
+  }
+  .don-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:var(--radius); padding:24px;
+  }
+  .don-card .label{color:var(--gold-light); font-weight:700; font-size:.85rem; margin-bottom:6px; display:block;}
+  .don-card .value{font-family:'Fraunces',serif; font-size:1.3rem; font-weight:600; color:#fff; word-break:break-word;}
+
+  /* Contact */
+  .contact-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px; margin-top:32px;
+  }
+  .contact-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px;
+  }
+  .contact-card .label{font-weight:700; color:var(--ink-soft); font-size:.85rem; margin-bottom:6px; display:block;}
+  .contact-card a{font-weight:700; color:var(--green-deep); text-decoration:none; font-size:1.05rem;}
+
+  footer{
+    padding:32px 24px; text-align:center; color:var(--ink-soft); font-size:.88rem;
+    border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <img src="images/logo-alkhair.png" alt="Logo AL KHAIR RDC" class="brand-mark" style="object-fit:cover;">
+      AL KHAIR RDC
+    </a>
+    <input type="checkbox" id="nav-toggle">
+    <label class="burger" for="nav-toggle" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </label>
+    <nav>
+      <ul>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#activites">Activités</a></li>
+        <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="#competitions">Compétitions</a></li>
+        <li><a href="#seminaires">Séminaires</a></li>
+        <li><a href="#gouvernance">Gouvernance</a></li>
+        <li><a href="#musabaqa">Musabaqa 2026</a></li>
+        <li><a href="#don">Faire un don</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Servir, éduquer et rassembler la communauté</h1>
+    <p>AL KHAIR RDC est une organisation qui met la solidarité et le savoir au service de la communauté, à travers des actions caritatives, des compétitions coraniques et des séminaires d'enseignement.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">Nous contacter</a>
+      <a href="#activites" class="btn btn-outline">Découvrir nos actions</a>
+    </div>
+  </div>
+</section>
+
+<section id="apropos">
+  <div class="wrap">
+    <span class="eyebrow">À propos</span>
+    <h2>Notre vision et notre mission</h2>
+    <p>AL KHAIR GROUPE (« AL KHAIR RDC ») est une association sans but lucratif, à vocation humanitaire, sociale et communautaire, fondée à Goma en 2018. Nous aspirons à une société congolaise inclusive, pacifique et résiliente, où chaque personne — en particulier les enfants, les jeunes et les femmes — peut vivre dans la dignité et participer pleinement au développement de sa communauté.</p>
+    <p>Notre mission : offrir un accompagnement global et durable aux personnes vulnérables, renforcer leurs capacités, promouvoir leur autonomie et contribuer à la paix et à la cohésion sociale.</p>
+    <ul class="mission-list">
+      <li>Protection de l'enfance et protection communautaire</li>
+      <li>Éducation, formation et renforcement des capacités</li>
+      <li>Santé communautaire, eau, hygiène et assainissement</li>
+      <li>Autonomisation des femmes et des jeunes</li>
+      <li>Paix, cohésion sociale et prévention des conflits</li>
+      <li>Assistance humanitaire et réponse aux urgences</li>
+    </ul>
+  </div>
+</section>
+
+<section id="activites" class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Activités caritatives</span>
+    <h2>Ce que nous faisons pour la communauté</h2>
+    <p>Nos actions caritatives visent à soulager les besoins urgents tout en construisant des solutions durables.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Distribution alimentaire</h3>
+        <p>Des vivres remis régulièrement aux familles en difficulté, en particulier pendant le Ramadan et les périodes de fête.</p>
+      </div>
+      <div class="card">
+        <h3>Soutien aux orphelins</h3>
+        <p>Un accompagnement matériel et éducatif pour les enfants orphelins de notre communauté.</p>
+      </div>
+      <div class="card">
+        <h3>Aide médicale</h3>
+        <p>Une contribution aux frais de santé des familles qui n'ont pas accès aux soins de base.</p>
+      </div>
+      <div class="card">
+        <h3>Fournitures scolaires</h3>
+        <p>La remise de kits scolaires aux enfants à chaque rentrée pour alléger la charge des parents.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="realisations">
+  <div class="wrap">
+    <span class="eyebrow">Nos réalisations</span>
+    <h2>Des actions concrètes sur le terrain</h2>
+    <p>Un aperçu de nos réalisations récentes auprès des familles et des enfants de Goma.</p>
+    <div class="gallery">
+      <figure>
+        <div class="art"><img src="images/musabaqa-recitation-scene.jpg" alt="Récitation lors du concours coranique" style="width:100%;height:100%;object-fit:cover;"></div>
+        <figcaption>Récitation lors du concours coranique</figcaption>
+      </figure>
+      <figure>
+        <div class="art"><img src="images/musabaqa-public.jpg" alt="Public réuni pour la compétition" style="width:100%;height:100%;object-fit:cover;"></div>
+        <figcaption>Le public réuni pour la compétition</figcaption>
+      </figure>
+      <figure>
+        <div class="art"><img src="images/musabaqa-trophee-groupe.jpg" alt="Lauréats de la première Musabaqa" style="width:100%;height:100%;object-fit:cover;"></div>
+        <figcaption>Lauréats de la première Musabaqa</figcaption>
+      </figure>
+      <figure>
+        <div class="art"><img src="images/musabaqa-remise-medaille.jpg" alt="Remise de médaille à un lauréat" style="width:100%;height:100%;object-fit:cover;"></div>
+        <figcaption>Remise de médaille à un lauréat</figcaption>
+      </figure>
+      <figure>
+        <div class="art"><img src="images/musabaqa-laureats.jpg" alt="Lauréats de la deuxième édition" style="width:100%;height:100%;object-fit:cover;"></div>
+        <figcaption>Lauréats de la deuxième édition</figcaption>
+      </figure>
+      <figure>
+        <div class="art"><img src="images/photo-seminaire.jpg" alt="Séminaire d'enseignement" style="width:100%;height:100%;object-fit:cover;"></div>
+        <figcaption>Séminaire d'enseignement</figcaption>
+      </figure>
+    </div>
+    <p class="gallery-note">Photos issues de nos concours coraniques (Musabaqa) et de nos séminaires. Vous pourrez en ajouter d'autres plus tard en déposant de nouveaux fichiers dans le dossier « images ».</p>
+  </div>
+</section>
+
+<section id="competitions" class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Compétitions coraniques</span>
+    <h2>Encourager la mémorisation et la récitation</h2>
+    <p>Chaque année, AL KHAIR RDC organise des compétitions de mémorisation et de récitation du Coran, ouvertes aux enfants et aux adultes. Ces rencontres valorisent l'effort des participants et créent un moment fort de partage pour toute la communauté.</p>
+  </div>
+</section>
+
+<section id="seminaires">
+  <div class="wrap">
+    <span class="eyebrow">Séminaires</span>
+    <h2>Apprendre et échanger ensemble</h2>
+    <p>Nous organisons des séminaires réguliers animés par des enseignants qualifiés, abordant des sujets religieux, sociaux et familiaux. Ces rencontres sont ouvertes à tous ceux qui souhaitent approfondir leurs connaissances dans un cadre convivial.</p>
+  </div>
+</section>
+
+<section id="gouvernance" class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Gouvernance</span>
+    <h2>Comment l'association est organisée</h2>
+    <p>AL KHAIR GROUPE est gouvernée par trois organes : l'Assemblée Générale, organe suprême qui fixe les grandes orientations ; le Conseil d'Administration, qui supervise la gouvernance ; et la Coordination, qui assure la gestion opérationnelle au quotidien.</p>
+  </div>
+</section>
+
+<section id="musabaqa">
+  <div class="wrap">
+    <span class="eyebrow">Musabaqa 2026</span>
+    <h2>Concours coranique 2026</h2>
+    <p>Quelques moments forts de notre concours coranique (Musabaqa) 2026 : remise des trophées, récompenses aux lauréats et rassemblement de la communauté.</p>
+  </div>
+</section>
+
+<section id="don" class="don">
+  <div class="wrap">
+    <span class="eyebrow" style="background:rgba(232,206,150,0.18); color:var(--gold-light);">Bénévoles &amp; soutien</span>
+    <h2>Faire un don</h2>
+    <p>Votre générosité nous permet de poursuivre nos actions auprès des familles, des orphelins et des enfants de Goma. Chaque contribution compte.</p>
+    <div class="don-grid">
+      <div class="don-card">
+        <span class="label">Mobile Money</span>
+        <span class="value">+243 992 033 526</span>
+      </div>
+      <div class="don-card">
+        <span class="label">Par e-mail</span>
+        <span class="value">Alkhairgrouperdc@gmail.com</span>
+      </div>
+    </div>
+    <div class="hero-ctas" style="margin-top:28px;">
+      <a href="mailto:Alkhairgrouperdc@gmail.com?subject=Don%20%C3%A0%20AL%20KHAIR%20RDC" class="btn btn-gold">Contacter pour un don</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Contact</span>
+    <h2>Nous contacter</h2>
+    <p>Une question, une envie de vous engager à nos côtés ou de nous soutenir ? Contactez-nous.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="label">Téléphone</span>
+        <a href="tel:+243972038949">+243 972 038 949</a>
+      </div>
+      <div class="contact-card">
+        <span class="label">Téléphone</span>
+        <a href="tel:+243976505226">+243 976 505 226</a>
+      </div>
+      <div class="contact-card">
+        <span class="label">Téléphone</span>
+        <a href="tel:+243972089777">+243 972 089 777</a>
+      </div>
+      <div class="contact-card">
+        <span class="label">E-mail</span>
+        <a href="mailto:Alkhairgrouperdc@gmail.com">Alkhairgrouperdc@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 AL KHAIR RDC — Goma, République Démocratique du Congo
+</footer>
+
+</body>
+</html>
